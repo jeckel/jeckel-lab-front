@@ -1,0 +1,20 @@
+//$useful-width: 1024px;
+$useful-width: 1140px;
+
+$color: #FFFFFF;
+
+$default-font-color: $color;
+
+$link-color: darken($color, 40);
+$link-hover-color: $color;
+$link-active-color: $color;
+
+$font-menu: "Monaco", "Lucida Console", monospace;
+
+$font-family-title: Blueprint;
+$font-color-title: #FFFFFF;
+
+$border-color: darken($font-color-title, 60);
+
+$muted-border-color: gray;
+$muted-background-color: rgba(0, 0, 0, 0.1);

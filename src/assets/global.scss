@@ -1,0 +1,96 @@
+@import '~normalize.css';
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+@import 'variables';
+
+body {
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+    ), center url("./images/1639585.jpg") fixed;
+
+    height: 100vh;
+
+    //background: linear-gradient(#e66465, #9198e5);
+
+    color: $default-font-color;
+    font-family: 'Verdana', sans-serif;
+}
+
+@font-face {
+    font-family: Blueprint;
+    src: url(./fonts/Pwscratchedfont-1YzM.ttf);
+}
+
+a {
+    color: $link-color;
+    transition: all 0.1s;
+}
+a:hover {
+    color: $link-hover-color;
+}
+a:active {
+    color: $link-active-color;
+}
+
+.margin-constraint{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.useful-width{
+    max-width: $useful-width;
+    margin-left: auto;
+    margin-right: auto;
+}
+.margin-constraint, .useful-width{
+    /*Si vous utilisez uniquement des div, cette dernière règle css n'est même pas nécessaire*/
+    display: block;
+    width: auto;
+}
+
+.content {
+    padding-top: 110px;
+
+    p, li {
+        line-height: 1.6em;
+    }
+    h1, h2, h3 {
+        padding: 0;
+        margin: 0;
+        font-family: $font-menu;
+        font-weight: 200;
+
+        .text-muted {
+            font-size: medium;
+            text-align: right;
+            border: 1px dashed $muted-border-color;
+            border-radius: 18px;
+            float: right;
+            padding: 5px 10px;
+            margin-top: 8px;
+            background-color: $muted-background-color;
+        }
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    h3 {
+        font-size: 1.4em;
+    }
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid $border-color;
+
+    .card-header, .card-body, .card-footer {
+        padding: 15px;
+    }
+
+    .card-header {
+        border-bottom: 1px solid $border-color;
+    }
+
+    .card-footer {
+        border-top: 1px solid $border-color;
+    }
+}
