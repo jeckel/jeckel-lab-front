@@ -1,13 +1,12 @@
 <template>
-  <input
-    :type="type"
+  <textarea
     :id="id"
     :name="fieldName"
     :required="required"
     :placeholder="placeholder"
     :class="classname"
     v-model="value" @input="$emit('update:modelValue', $event.target.value)"
-  />
+  ></textarea>
 </template>
 
 <script lang="ts">
@@ -17,7 +16,6 @@ import { Options, Vue } from 'vue-class-component';
   props: {
     id: { type: String, required: true },
     name: { type: String, required: false },
-    type: { type: String, required: false, default: 'text' },
     required: { type: Boolean, default: false },
     placeholder: { type: String, default: '', required: false },
     classname: { type: String, default: 'form-control' },
@@ -31,10 +29,12 @@ import { Options, Vue } from 'vue-class-component';
     };
   },
 })
-export default class FormFieldTextField extends Vue {
+export default class FormFieldTextarea extends Vue {
 }
 </script>
 
 <style lang="scss" scoped>
-
+textarea {
+  height: 10em;
+}
 </style>

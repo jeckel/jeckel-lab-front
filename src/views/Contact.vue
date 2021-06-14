@@ -13,7 +13,7 @@
 
 <script lang="ts">
 import { Vue, Options } from 'vue-class-component';
-import FormContactForm from '@/components/Form.ContactForm.vue';
+import FormContactForm from '@/components/organisms/Form.ContactForm.vue';
 
 @Options({
   components: { FormContactForm },
