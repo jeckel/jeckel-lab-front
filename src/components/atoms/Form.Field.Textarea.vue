@@ -5,6 +5,7 @@
     :required="required"
     :placeholder="placeholder"
     :class="classname"
+    :disabled="disabled"
     v-model="value" @input="$emit('update:modelValue', $event.target.value)"
   ></textarea>
 </template>
@@ -17,6 +18,7 @@ import { Options, Vue } from 'vue-class-component';
     id: { type: String, required: true },
     name: { type: String, required: false },
     required: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
     placeholder: { type: String, default: '', required: false },
     classname: { type: String, default: 'form-control' },
     modelValue: String,

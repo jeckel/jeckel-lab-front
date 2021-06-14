@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 import { ContactMessageType } from '@/models';
+import { ApiResponse } from '@/models/contact.interface';
 
 const instance = axios.create({
   baseURL: 'http://localhost:8001/api',
@@ -17,5 +18,5 @@ const requests = {
 
 // eslint-disable-next-line import/prefer-default-export
 export const ContactMessage = {
-  sendContactMessage: (contactMessage: ContactMessageType): Promise<ContactMessageType> => requests.post('/contact', contactMessage),
+  sendContactMessage: (contactMessage: ContactMessageType): Promise<ApiResponse> => requests.post('/contact', contactMessage),
 };

@@ -6,6 +6,7 @@
       :id="id"
       :name="fieldName"
       :required="required"
+      :disabled="disabled"
       :placeholder="placeholderName"
       :classname="classname"
       v-model="value" @input="$emit('update:modelValue', $event.target.value)"
@@ -16,6 +17,7 @@
       :id="id"
       :name="fieldName"
       :required="required"
+      :disabled="disabled"
       :placeholder="placeholderName"
       :classname="classname"
       v-model="value" @input="$emit('update:modelValue', $event.target.value)"
@@ -37,6 +39,7 @@ import FormFieldTextarea from '@/components/atoms/Form.Field.Textarea.vue';
     name: { type: String, required: false },
     type: { type: String, required: false, default: 'text' },
     required: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
     label: { type: String, required: true },
     placeholder: { type: String, required: false },
     classname: { type: String, default: 'form-control' },
@@ -68,6 +71,9 @@ export default class FormFormRawTextField extends Vue {
   margin: 8px 0;
   background-color: $form-control-background-color;
   font-family: $form-control-font;
+}
+.form-control:disabled {
+  color: $form-control-color-disabled;
 }
 
 .form-group {

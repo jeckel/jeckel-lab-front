@@ -5,7 +5,7 @@
         <i class="far fa-envelope"></i> Contacter Jeckel-Lab
       </h2>
     </div>
-    <div class="card-body form">
+    <div class="card-body">
       <FormContactForm/>
     </div>
   </div>

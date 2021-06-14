@@ -4,3 +4,9 @@ export interface ContactMessageType {
   subject: string,
   content: string,
 }
+
+// eslint-disable-next-line no-shadow
+export enum FlashMessageTypes {
+  'error',
+  'success'
+}

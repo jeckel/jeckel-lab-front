@@ -7,6 +7,7 @@
     :placeholder="placeholder"
     :class="classname"
     v-model="value" @input="$emit('update:modelValue', $event.target.value)"
+    :disabled="disabled"
   />
 </template>
 
@@ -19,6 +20,7 @@ import { Options, Vue } from 'vue-class-component';
     name: { type: String, required: false },
     type: { type: String, required: false, default: 'text' },
     required: { type: Boolean, default: false },
+    disabled: { type: Boolean, default: false },
     placeholder: { type: String, default: '', required: false },
     classname: { type: String, default: 'form-control' },
     modelValue: String,

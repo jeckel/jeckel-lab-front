@@ -24,3 +24,20 @@ $darken-background-color: rgba(0, 0, 0, 0.3);
 $form-control-font: $font-menu;
 $form-control-background-color: $darken-background-color;
 $form-control-border-color: silver;
+$form-control-color-disabled: gray;
+
+
+//$default:#9E9E9E;
+$error:#D50000;
+//$warning:#FF6F00;
+//$neutral:#448AFF;
+$success:#388E3C;
+//$uhm:#c1610d;
+
+$light:#eee;
+$dark:#222;
+
+$alert-success-background: mix($dark, $success, 75%);
+$alert-success-border: lighten($success, 10%);
+$alert-error-background: mix($dark, $error, 75%);
+$alert-error-border: lighten($error, 10%);
