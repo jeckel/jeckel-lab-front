@@ -15,5 +15,8 @@ import Header from '@/components/Header.vue';
   components: { Header },
 })
 export default class App extends Vue {
+  computed(): void {
+    console.log(this);
+  }
 }
 </script>

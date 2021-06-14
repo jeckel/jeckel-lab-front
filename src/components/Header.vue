@@ -6,7 +6,7 @@
         <span class="subtitle">Lead-Dev / Architecte Freelance</span>
       </h1>
       <ul class="topnav">
-        <NavMenuItem
+        <HeaderNavMenuItem
           v-for="menuItem in menuItems"
           :key="menuItem.id"
           :label="menuItem.label"
@@ -20,9 +20,9 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import NavMenuItem from '@/components/NavMenuItem.vue';
+import HeaderNavMenuItem from '@/components/Header.NavMenuItem.vue';
 
-@Options({ components: { NavMenuItem } })
+@Options({ components: { HeaderNavMenuItem } })
 export default class Header extends Vue {
   private menuItems = [
     {

@@ -1,0 +1,83 @@
+@import "variables";
+
+.form {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+  form {
+    max-width: 500px;
+    width: 90%;
+    //background-color: $form-bg-color;
+    padding: 40px;
+    border-radius: 4px;
+    left: 50%;
+    //color: $form-text-color;
+
+    label {
+      display: none;
+    }
+
+    label[for="registration_form_agreeTerms"] {
+      display: inline;
+      //color: $form-label;
+    }
+
+    textarea {
+      height: 10em;
+    }
+
+    .form-group {
+      text-align: center;
+    }
+    .form-control {
+      border: none;
+      border-radius: 0;
+      border-bottom: 1px dashed $form-control-border-color;
+      color: inherit;
+      width: 100%;
+      padding: 12px 0 12px 12px;
+      margin: 8px 0;
+      background-color: $form-control-background-color;
+      font-family: $form-control-font;
+    }
+
+    .form-control-checkbox {
+      margin: 10px;
+    }
+
+    .btn {
+      padding: 11px;
+      margin: 26px 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 1px dashed silver;
+      border-radius: 20px;
+      color: inherit;
+      font-family: $form-control-font;
+      transition: all 0.1s;
+    }
+    .btn:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+  }
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: silver;
+  //font-style: italic;
+  -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: $form-control-background-color;
+}

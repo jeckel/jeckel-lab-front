@@ -14,7 +14,7 @@ import { Options, Vue } from 'vue-class-component';
     icon: String,
   },
 })
-export default class NavMenuItem extends Vue {
+export default class HeaderNavMenuItem extends Vue {
   target!: string
 
   label!: string

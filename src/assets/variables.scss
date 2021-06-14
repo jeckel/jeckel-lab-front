@@ -18,3 +18,9 @@ $border-color: darken($font-color-title, 60);
 
 $muted-border-color: gray;
 $muted-background-color: rgba(0, 0, 0, 0.1);
+
+$darken-background-color: rgba(0, 0, 0, 0.3);
+
+$form-control-font: $font-menu;
+$form-control-background-color: $darken-background-color;
+$form-control-border-color: silver;
