@@ -28,6 +28,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/blog', name: 'Blog', component: () => import('@/views/Blog.vue'),
   },
   {
+    path: '/blog/post/:id',
+    name: 'BlogPost',
+    component: () => import('@/views/BlogPost.vue'),
+    props: true,
+  },
+  {
     path: '/contact', name: 'Contact', component: () => import('@/views/Contact.vue'),
   },
   {

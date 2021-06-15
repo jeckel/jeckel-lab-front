@@ -1,9 +1,8 @@
+import { BlogPost } from '@/models';
 import axios, { AxiosResponse } from 'axios';
-import { ContactMessageType } from '@/models';
-import { ApiResponse } from '@/models/contact.interface';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:8001/api',
+  baseURL: 'http://localhost:3000',
   timeout: 15000,
 });
 
@@ -17,8 +16,7 @@ const requests = {
 };
 
 // eslint-disable-next-line import/prefer-default-export
-export const ContactMessage = {
-  sendContactMessage: (contactMessage: ContactMessageType): Promise<ApiResponse> => requests.post('/contact', contactMessage),
+export const ApiBlog = {
+  getList: (): Promise<BlogPost[]> => requests.get('/posts'),
+  get: (id: string): Promise<BlogPost> => requests.get(`/posts/${id}`),
 };
-
-export * from './api.blog';

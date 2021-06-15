@@ -1,3 +1,5 @@
+export * from './blog.interface';
+
 export interface ContactMessageType {
   fromName: string,
   fromEmail: string,
