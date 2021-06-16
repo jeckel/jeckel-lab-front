@@ -1,8 +1,8 @@
 export * from './blog.interface';
+export * from './contact.interface';
+export * from './menu.interface';
 
-export interface ContactMessageType {
-  fromName: string,
-  fromEmail: string,
-  subject: string,
-  content: string,
+export interface ApiResponse {
+  success: boolean
+  message: string
 }

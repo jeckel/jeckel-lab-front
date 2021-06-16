@@ -1,4 +1,6 @@
-export interface ApiResponse {
-  success: boolean
-  message: string
+export interface ContactMessage {
+  fromName: string,
+  fromEmail: string,
+  subject: string,
+  content: string,
 }

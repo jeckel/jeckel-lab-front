@@ -43,13 +43,12 @@
 
 <script lang="ts">
 import { reactive, toRefs } from 'vue';
-import { ContactMessage } from '@/api';
+import { ContactMessageApi } from '@/api';
 import FormFormRawTextField from '@/components/molecules/Form.FormRaw.TextField.vue';
 import FormFormRawSubmit from '@/components/molecules/Form.FormRaw.Submit.vue';
 import Loader from '@/components/atoms/Loader.vue';
 import FlashMessage from '@/components/atoms/FlashMessage.vue';
-import { ApiResponse } from '@/models/contact.interface';
-import { ContactFormMessageType } from '@/models/ContactFormTypes.interface';
+import { ContactMessage, ApiResponse } from '@/models';
 
 export default {
   components: {
@@ -59,7 +58,7 @@ export default {
   // eslint-disable-next-line class-methods-use-this
   setup(): Record<string, unknown> {
     const state = reactive({
-      contactMessage: {} as ContactFormMessageType,
+      contactMessage: {} as ContactMessage,
       loading: false,
       disabled: false,
       completed: false,
@@ -71,7 +70,7 @@ export default {
       state.loading = true;
       state.disabled = true;
 
-      ContactMessage.sendContactMessage(state.contactMessage)
+      ContactMessageApi.sendContactMessage(state.contactMessage)
         .then((response: ApiResponse) => {
           state.completed = true;
           state.loading = false;

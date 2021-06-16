@@ -1,36 +1,32 @@
 <template>
-    <li :class="{ active: linkActive }">
-      <router-link :to="target"><i :class="icon" v-if="icon !== ''"></i>{{ label }}</router-link>
+    <li :class="{ active: isActive }" class="menuItem">
+      <router-link :to="item.target">
+        <i :class="item.icon" v-if="item.icon !== ''"></i>{{ item.label }}
+      </router-link>
     </li>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+import { computed, defineComponent, PropType } from 'vue';
+import { MenuItem } from '@/models';
+import { useRoute } from 'vue-router';
 
-@Options({
+export default defineComponent({
   props: {
-    target: String,
-    label: String,
-    icon: String,
+    item: { type: Object as PropType<MenuItem> },
   },
-})
-export default class HeaderNavMenuItem extends Vue {
-  target!: string
 
-  label!: string
-
-  icon!: string
-
-  get linkActive(): boolean {
-    return this.$route.path === this.target;
-  }
-}
+  setup(props) {
+    const isActive = computed(() => props.item?.name === useRoute().meta.menuItem);
+    return { isActive };
+  },
+});
 </script>
 
-<style lang="scss" scoped>
-@import '../assets/variables';
+<style lang="scss">
+@import '../../assets/variables';
 
-li {
+li.menuItem {
   float: left;
   text-align: center;
 

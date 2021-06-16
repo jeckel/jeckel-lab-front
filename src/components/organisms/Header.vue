@@ -8,10 +8,8 @@
       <ul class="topnav">
         <HeaderNavMenuItem
           v-for="menuItem in menuItems"
-          :key="menuItem.id"
-          :label="menuItem.label"
-          :target="menuItem.target"
-          :icon="menuItem.icon"
+          :key="menuItem.name"
+          :item="menuItem"
         />
       </ul>
     </div>
@@ -20,29 +18,30 @@
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import HeaderNavMenuItem from '@/components/Header.NavMenuItem.vue';
+import HeaderNavMenuItem from '@/components/atoms/Header.NavMenuItem.vue';
+import { MenuItem } from '@/models/menu.interface';
 
 @Options({ components: { HeaderNavMenuItem } })
 export default class Header extends Vue {
   private menuItems = [
     {
-      id: 1, target: '/', label: 'Home',
+      name: 'home', target: '/', label: 'Home',
     },
     {
-      id: 2, target: '/blog', label: 'Blog',
+      name: 'blog', target: '/blog', label: 'Blog',
     },
     {
-      id: 3, target: '/contact', label: 'Contact',
+      name: 'contact', target: '/contact', label: 'Contact',
     },
     {
-      id: 4, target: '/login', label: '', icon: 'fas fa-user',
+      name: 'user', target: '/login', label: '', icon: 'fas fa-user',
     },
-  ]
+  ] as MenuItem[]
 }
 </script>
 
-<style lang="scss" scoped>
-@import '../assets/variables';
+<style lang="scss">
+@import '../../assets/variables';
 
 #navbar {
   overflow: hidden;
@@ -54,7 +53,7 @@ export default class Header extends Vue {
   background: linear-gradient(
           rgba(0, 0, 0, 0.7),
           rgba(0, 0, 0, 0.5)
-  ), center url("../assets/images/1639585.jpg") fixed;
+  ), center url("../../assets/images/1639585.jpg") fixed;
 
   h1.logo {
     font-family: $font-family-title;

@@ -18,7 +18,7 @@ import useGetPost from '@/composables/useGetPost';
 export default {
   name: 'BlogPost',
   props: ['id'],
-  setup(props) {
+  setup(props: any) {
     const { post, error, load } = useGetPost(props.id);
     load();
     return { post, error };

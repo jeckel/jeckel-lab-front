@@ -13,31 +13,29 @@ const routes: Array<RouteConfig> = [
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Home',
     component: Home,
+    meta: { menuItem: 'home' },
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-  },
-  {
-    path: '/blog', name: 'Blog', component: () => import('@/views/Blog.vue'),
+    path: '/blog',
+    component: () => import('@/views/Blog.vue'),
+    meta: { menuItem: 'blog' },
   },
   {
     path: '/blog/post/:id',
-    name: 'BlogPost',
     component: () => import('@/views/BlogPost.vue'),
     props: true,
+    meta: { menuItem: 'blog' },
   },
   {
-    path: '/contact', name: 'Contact', component: () => import('@/views/Contact.vue'),
+    path: '/contact',
+    component: () => import('@/views/Contact.vue'),
+    meta: { menuItem: 'contact' },
   },
   {
-    path: '/login', name: 'Login', component: () => import('@/views/Login.vue'),
+    path: '/login',
+    component: () => import('@/views/Login.vue'),
+    meta: { menuItem: 'user' },
   },
 ];
 
