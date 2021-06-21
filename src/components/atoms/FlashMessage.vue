@@ -1,27 +1,24 @@
 <template>
-  <div class="alert alert-success" v-if="success">
+  <div class="alert alert-success" v-if="flashMessage.level === FlashMessageLevel.success">
     <i class="fas fa-check-circle"></i>
-    {{ message }}
+    {{ flashMessage.message }}
   </div>
 
   <div class="alert alert-error" v-else>
     <i class="fas fa-exclamation-triangle"></i>
-    {{ message }}
+    {{ flashMessage.message }}
   </div>
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+import { defineComponent, PropType } from 'vue';
+import { FlashMessage, FlashMessageLevel } from '@/models';
 
-@Options({
+export default defineComponent({
   props: {
-    message: { type: String, required: true },
-    success: { type: Boolean, required: false, default: true },
+    flashMessage: { type: Object as PropType<FlashMessage> },
   },
-})
-export default class FlashMessage extends Vue {
-}
-
+});
 </script>
 
 <style lang="scss" scoped>

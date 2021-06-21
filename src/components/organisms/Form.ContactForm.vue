@@ -1,5 +1,5 @@
 <template>
-  <FlashMessage :message="completeMessage" :success="completeSuccess" v-if="completed"/>
+  <AtomsFlashMessage :flashMessage="flashMessage" v-if="flashMessage"/>
   <div class="form">
   <form @submit.prevent="submitForm">
     <FormFormRawTextField
@@ -46,13 +46,15 @@ import { reactive, toRefs } from 'vue';
 import { ContactMessageApi } from '@/api';
 import FormFormRawTextField from '@/components/molecules/Form.FormRaw.TextField.vue';
 import FormFormRawSubmit from '@/components/molecules/Form.FormRaw.Submit.vue';
+import AtomsFlashMessage from '@/components/atoms/FlashMessage.vue';
 import Loader from '@/components/atoms/Loader.vue';
-import FlashMessage from '@/components/atoms/FlashMessage.vue';
-import { ContactMessage, ApiResponse } from '@/models';
+import {
+  ApiResponse, ContactMessage, FlashMessage, FlashMessageLevel,
+} from '@/models';
 
 export default {
   components: {
-    FormFormRawTextField, FormFormRawSubmit, Loader, FlashMessage,
+    FormFormRawTextField, FormFormRawSubmit, Loader, AtomsFlashMessage,
   },
 
   // eslint-disable-next-line class-methods-use-this
@@ -61,9 +63,7 @@ export default {
       contactMessage: {} as ContactMessage,
       loading: false,
       disabled: false,
-      completed: false,
-      completeMessage: 'Votre message',
-      completeSuccess: true,
+      flashMessage: null as FlashMessage | null,
     });
 
     function submitForm() {
@@ -72,15 +72,17 @@ export default {
 
       ContactMessageApi.sendContactMessage(state.contactMessage)
         .then((response: ApiResponse) => {
-          state.completed = true;
           state.loading = false;
-          state.completeMessage = response.message;
-          state.completeSuccess = response.success;
+          state.flashMessage = {
+            message: response.message,
+            level: response.success ? FlashMessageLevel.success : FlashMessageLevel.error,
+          } as FlashMessage;
         })
-        .catch(() => {
-          state.completed = true;
-          state.completeMessage = 'Error';
-          state.completeSuccess = false;
+        .catch((e) => {
+          state.flashMessage = {
+            message: e.message,
+            level: FlashMessageLevel.error,
+          } as FlashMessage;
         });
     }
 

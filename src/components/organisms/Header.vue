@@ -34,7 +34,7 @@ export default class Header extends Vue {
       name: 'contact', target: '/contact', label: 'Contact',
     },
     {
-      name: 'user', target: '/login', label: '', icon: 'fas fa-user',
+      name: 'user', target: { name: 'LoginPage' }, label: '', icon: 'fas fa-user',
     },
   ] as MenuItem[]
 }
